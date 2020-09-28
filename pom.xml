@@ -3,8 +3,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.finbourne</groupId>
-    <artifactId>features</artifactId>
-    <version>1</version>
+    <artifactId>lusid-features</artifactId>
+    <packaging>jar</packaging>
+    <name>lusid-features</name>
+    <version>1.0.0</version>
+
+    <developers>
+        <developer>
+            <name>FINBOURNE Technology Limited</name>
+            <email>engineering@finbourne.com</email>
+            <organization>FINBOURNE Technology Limited</organization>
+            <organizationUrl>https://www.finbourne.com</organizationUrl>
+        </developer>
+    </developers>
 
     <dependencies>
         <dependency>
@@ -80,6 +91,24 @@
                                 <source>src/test/java</source>
                             </sources>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>

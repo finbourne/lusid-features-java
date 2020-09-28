@@ -2,8 +2,6 @@ package com.finbourne.features;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import org.apache.commons.cli.*;
 
@@ -38,28 +36,15 @@ public class Main {
         String packageName = cmd.getOptionValue("package");
         String filepath = cmd.getOptionValue("filepath");
 
-        if(packageName == null) {
-            packageName = "com.finbourne.lusid.tutorials";
-        }
-
-        if(filepath == null) {
-            filepath = "features.txt";
-        }
 
         System.out.println(packageName);
-        System.out.println(filepath);
-
-        Path currentDir = Paths.get(System.getProperty("user.dir"));
-        // the below is not a good method as it depends on where the code is run from...
-        Path rootPath = currentDir.getParent().getParent().getParent().getParent().getParent().getParent().getParent();
-        String finalPath = Paths.get(rootPath.toString(), "sdk", filepath).toString();
 
         FeatureExtractor featureExtractor = new FeatureExtractor();
         FeatureFileWriter featureFileWriter = new FeatureFileWriter();
 
         List<String> annotations = featureExtractor.getAnnotations(packageName);
         String annotationsFromMethod = String.join("\n", annotations);
-        featureFileWriter.writeToFile(annotationsFromMethod, finalPath);
-        System.out.println("Done writing to filepath: " + finalPath);
+        featureFileWriter.writeToFile(annotationsFromMethod, filepath);
+        System.out.println("Done writing to filepath: " + filepath);
     }
 }
