@@ -14,7 +14,21 @@ import java.util.List;
 
 public class FeatureExtractor {
 
+    public List<String> getAnnotations(String packageName) throws URISyntaxException, IOException, ClassNotFoundException, NullFeatureValueException, DuplicateFeatureException {
+        List<String> annotations = new ArrayList<>();
 
+        this.getClasses(packageName).forEach(clazz -> {
+                    for (Method method : clazz.getMethods()) {
+                        if (method.isAnnotationPresent(LusidFeature.class)) {
+                            String annotationValue = method.getAnnotation(LusidFeature.class).value();
+                            annotations.add(annotationValue);
+                        }
+                    }
+                }
+        );
+        this.checkIfAnnotationsValid(annotations);
+        return annotations;
+    }
 
     /**
      * Scans all classes accessible from the context class loader which belong
@@ -25,7 +39,7 @@ public class FeatureExtractor {
      * @throws ClassNotFoundException is thrown when no classes are found
      * @throws IOException            is thrown when the input is not acceptable
      */
-    private Iterable<Class> getClasses(String packageName) throws ClassNotFoundException, IOException, URISyntaxException {
+    private List<Class> getClasses(String packageName) throws ClassNotFoundException, IOException, URISyntaxException {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         String path = packageName.replace('.', File.separatorChar);
 
@@ -102,22 +116,6 @@ public class FeatureExtractor {
                     "Please assign it a value in the form \"LusidFeature(\"<code-value>\")\"");
         }
 
-    }
-
-    public List<String> getAnnotations(String packageName) throws URISyntaxException, IOException, ClassNotFoundException, NullFeatureValueException, DuplicateFeatureException {
-        List<String> annotations = new ArrayList<>();
-
-        this.getClasses(packageName).forEach(clazz -> {
-                    for (Method method : clazz.getMethods()) {
-                        if (method.isAnnotationPresent(LusidFeature.class)) {
-                            String annotationValue = method.getAnnotation(LusidFeature.class).value();
-                            annotations.add(annotationValue);
-                        }
-                    }
-                }
-        );
-        this.checkIfAnnotationsValid(annotations);
-        return annotations;
     }
 
 }
