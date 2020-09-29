@@ -1,4 +1,4 @@
-package com.finbourne.features;
+package com.finbourne.features.reporter;
 
 public class NullFeatureValueException extends Exception {
     NullFeatureValueException(String message) {

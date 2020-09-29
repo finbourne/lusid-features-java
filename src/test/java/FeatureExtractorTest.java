@@ -1,4 +1,7 @@
-import com.finbourne.features.*;
+import com.finbourne.features.reporter.DuplicateFeatureException;
+import com.finbourne.features.reporter.FeatureExtractor;
+import com.finbourne.features.reporter.FeatureFileWriter;
+import com.finbourne.features.reporter.NullFeatureValueException;
 import org.apache.commons.io.Charsets;
 import org.junit.Rule;
 import org.junit.Test;
@@ -8,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 

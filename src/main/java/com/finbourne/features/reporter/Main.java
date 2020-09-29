@@ -1,4 +1,4 @@
-package com.finbourne.features;
+package com.finbourne.features.reporter;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

@@ -1,4 +1,4 @@
-package com.finbourne.features;
+package com.finbourne.features.reporter;
 
 public class DuplicateFeatureException extends Exception {
     DuplicateFeatureException(String message) {
