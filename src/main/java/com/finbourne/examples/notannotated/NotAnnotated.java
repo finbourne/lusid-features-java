@@ -1,9 +1,8 @@
-package com.finbourne.examples.noinput;
+package com.finbourne.examples.notannotated;
 
 import com.finbourne.features.LusidFeature;
 
-public class NoInputAnnotationsDummy {
-    @LusidFeature
+public class NotAnnotated {
     public void methodOne() {
     }
 

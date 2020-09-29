@@ -2,7 +2,7 @@ package com.finbourne.examples.valid;
 
 import com.finbourne.features.LusidFeature;
 
-public class ValidAnnotationsDummy {
+public class ValidAnnotations {
     @LusidFeature("F1")
     public void methodOne() {
     }

@@ -185,6 +185,8 @@ buildNumber.properties
 # secrets
 **/secrets*
 **/settings.xml
+settings/settings.xml
+settings
 # Environments
 **/.env
 .idea/

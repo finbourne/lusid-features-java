@@ -2,7 +2,7 @@ package com.finbourne.examples.empties;
 
 import com.finbourne.features.LusidFeature;
 
-public class EmptyAnnotationsDummy {
+public class EmptyAnnotations {
     @LusidFeature("")
     public void methodOne() {
     }

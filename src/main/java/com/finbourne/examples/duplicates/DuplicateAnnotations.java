@@ -2,7 +2,7 @@ package com.finbourne.examples.duplicates;
 
 import com.finbourne.features.LusidFeature;
 
-public class DuplicateAnnotationsDummy {
+public class DuplicateAnnotations {
 
     @LusidFeature("Duplicate Test")
     public void methodOne(){}
