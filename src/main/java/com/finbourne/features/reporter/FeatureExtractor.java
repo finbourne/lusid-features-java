@@ -11,6 +11,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
 
 public class FeatureExtractor {
 
@@ -105,10 +108,13 @@ public class FeatureExtractor {
      */
 
     private void checkIfAnnotationsValid(List<String> annotations) throws DuplicateFeatureException, NullFeatureValueException {
-        long distinctAnnotationsCount = annotations.stream().distinct().count();
-        if(distinctAnnotationsCount < annotations.size()){
-            throw new DuplicateFeatureException("LusidFeature annotations with duplicate values have been found. " +
-                    "Please make sure no LusidFeature annotations duplicates are present.");
+
+        List<String> duplicates = annotations.stream().collect(groupingBy(s -> s))
+                .values().stream().filter(f -> f.size() > 1).collect(Collectors.toList())
+                .stream().flatMap(List::stream).collect(Collectors.toList());
+
+        if (duplicates.stream().findAny().isPresent()) {
+            throw new DuplicateFeatureException("LusidFeatures annotations with duplicate values have been found: " + String.join(",", duplicates));
         }
 
         if(annotations.contains("")) {
