@@ -6,7 +6,7 @@
     <artifactId>lusid-features</artifactId>
     <packaging>jar</packaging>
     <name>lusid-features</name>
-    <version>1.0.2</version>
+    <version>1.0.2-SNAPSHOT</version>
 
     <developers>
         <developer>
@@ -69,12 +69,6 @@
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
