@@ -190,3 +190,4 @@ settings
 # Environments
 **/.env
 .idea/
+**/*.asc
