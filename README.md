@@ -1,3 +1,3 @@
-![LUSID_by_Finbourne](https://content.finbourne.com/LUSID_repo.png)
+![LUSID_by_Finbourne](./resources/Finbourne_Logo_Teal.svg)
 
 # Lusid Feature Java Annotation Scanner
